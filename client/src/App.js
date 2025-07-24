@@ -49,21 +49,21 @@ function App() {
       {/* Skip to main content link for accessibility */}
       <a href="#main-content" className="sr-only focus:not-sr-only absolute top-2 left-2 bg-blue-700 text-white px-4 py-2 rounded z-50">Skip to main content</a>
       {/* Hero Section */}
-      <header className="relative flex flex-col items-center justify-center py-12 md:py-20 text-center bg-gradient-to-br from-blue-400/80 to-blue-700/80 shadow-lg">
-        <h1 className="text-5xl md:text-6xl font-extrabold text-white drop-shadow-lg mb-4 animate-fade-in">MausamGuru</h1>
-        <p className="text-xl md:text-2xl text-blue-100 mb-6 animate-fade-in delay-100 flex items-center justify-center gap-2">
+      <header className="sticky top-0 z-50 w-full flex flex-col items-center justify-center py-6 sm:py-10 md:py-16 text-center bg-gradient-to-br from-blue-400/80 to-blue-700/80 shadow-lg border-b border-blue-200/30">
+        <h1 className="text-3xl sm:text-4xl md:text-6xl font-extrabold text-white drop-shadow-lg mb-2 sm:mb-4 animate-fade-in">MausamGuru</h1>
+        <p className="text-base sm:text-xl md:text-2xl text-blue-100 mb-2 sm:mb-6 animate-fade-in delay-100 flex items-center justify-center gap-2">
           Aapka Mausam Saathi
           <img
             src="https://cdn.jsdelivr.net/npm/svg-country-flags@1.2.10/svg/in.svg"
             alt="Indian flag"
-            style={{ display: 'inline', width: '1.5em', height: '1em', verticalAlign: 'middle' }}
+            className="inline-block w-6 h-4 sm:w-8 sm:h-5 align-middle"
           />
         </p>
         <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1200&q=80')] bg-cover bg-center opacity-20 pointer-events-none rounded-b-3xl" />
       </header>
 
       {/* Navbar */}
-      <nav className="backdrop-blur-md bg-white/60 shadow-xl sticky top-0 z-50 border-b border-blue-200/30" role="navigation" aria-label="Main Navigation">
+      <nav className="backdrop-blur-md bg-white/60 shadow-xl sticky top-[72px] sm:top-[96px] z-40 border-b border-blue-200/30" role="navigation" aria-label="Main Navigation">
         <div className="max-w-7xl mx-auto px-2 sm:px-4 py-3 flex flex-wrap items-center justify-between rounded-b-2xl">
           <span className="text-2xl sm:text-3xl font-extrabold tracking-tight text-blue-800 drop-shadow-sm font-sans select-none" style={{letterSpacing: '0.04em'}}>MausamGuru</span>
           <div className="flex flex-wrap gap-2 sm:gap-3 mt-2 sm:mt-0 overflow-x-auto sm:overflow-x-visible scrollbar-thin scrollbar-thumb-blue-200" role="tablist" aria-label="Main Tabs" style={{WebkitOverflowScrolling:'touch'}}>
@@ -107,7 +107,7 @@ function App() {
       </nav>
 
       {/* Main Content */}
-      <main id="main-content" className="flex-1 max-w-7xl mx-auto w-full px-1 sm:px-2 md:px-4 py-4 sm:py-8 pt-24 sm:pt-20" tabIndex={-1} aria-label="Main content">
+      <main id="main-content" className="flex-1 max-w-7xl mx-auto w-full px-1 sm:px-2 md:px-4 py-2 sm:py-8 pt-[140px] sm:pt-24" tabIndex={-1} aria-label="Main content">
         {isForecastTab && (
           <>
             <div className="text-xl font-bold text-blue-700 mb-2">{selectedLocation.city}, {selectedLocation.country}</div>
@@ -131,7 +131,7 @@ function App() {
         {activeTab === 'Now' && (
           <>
             {/* Sticky search bar on mobile, normal on desktop */}
-            <div className="block sm:hidden sticky top-[64px] z-40 bg-white/95 border-b border-blue-100 shadow-sm px-2 py-2 rounded-b-xl">
+            <div className="block sm:hidden sticky top-[120px] z-30 bg-white/95 border-b border-blue-100 shadow-sm px-2 py-2 rounded-b-xl">
               <Search onSelect={place => setSelectedLocation({
                 city: place.city,
                 country: place.country,
@@ -149,8 +149,8 @@ function App() {
                 longitude: place.longitude,
               })} />
             </div>
-            <section className="flex flex-col md:flex-row gap-6 md:gap-8 items-stretch w-full">
-              <div className="flex-1 w-full min-w-0 flex flex-col gap-6">
+            <section className="flex flex-col md:flex-row gap-4 md:gap-8 items-stretch w-full">
+              <div className="flex-1 w-full min-w-0 flex flex-col gap-4 md:gap-6">
                 <NowMaps 
                   selectedLocation={selectedLocation}
                   weather={mapWeather}
@@ -185,7 +185,7 @@ function App() {
                   </div>
                 </div>
               </div>
-              <div className="w-full md:max-w-[420px] flex flex-col gap-6 h-fit md:h-auto shrink-0">
+              <div className="w-full md:max-w-[420px] flex flex-col gap-4 md:gap-6 h-fit md:h-auto shrink-0">
                 <div className="mb-6 md:mb-8"><CurrentWeather location={selectedLocation} /></div>
                 <div className="mb-6 md:mb-8"><AirQuality location={selectedLocation} /></div>
                 <div className="mb-6 md:mb-8"><IndiaWeatherNews /></div>
@@ -193,7 +193,7 @@ function App() {
               </div>
             </section>
             {/* New container below maps/sidebar for Sunrise/Sunset/Moon only */}
-            <section className="max-w-7xl mx-auto w-full px-2 sm:px-4 flex flex-col md:flex-row gap-6 items-stretch justify-center mt-2 mb-8">
+            <section className="max-w-7xl mx-auto w-full px-2 sm:px-4 flex flex-col md:flex-row gap-4 md:gap-6 items-stretch justify-center mt-2 mb-8">
               <div className="flex-1 flex items-center justify-center">
                 <SidebarExtras location={selectedLocation} />
               </div>
