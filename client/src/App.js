@@ -107,7 +107,7 @@ function App() {
       </nav>
 
       {/* Main Content */}
-      <main id="main-content" className="flex-1 max-w-7xl mx-auto w-full px-1 sm:px-2 md:px-4 py-4 sm:py-8 pt-20" tabIndex={-1} aria-label="Main content">
+      <main id="main-content" className="flex-1 max-w-7xl mx-auto w-full px-1 sm:px-2 md:px-4 py-4 sm:py-8 pt-24 sm:pt-20" tabIndex={-1} aria-label="Main content">
         {isForecastTab && (
           <>
             <div className="text-xl font-bold text-blue-700 mb-2">{selectedLocation.city}, {selectedLocation.country}</div>
@@ -130,13 +130,23 @@ function App() {
         )}
         {activeTab === 'Now' && (
           <>
-            <div className="max-w-7xl mx-auto w-full px-2 sm:px-4 mb-8">
+            {/* Sticky search bar on mobile, normal on desktop */}
+            <div className="block sm:hidden sticky top-[64px] z-40 bg-white/95 border-b border-blue-100 shadow-sm px-2 py-2 rounded-b-xl">
               <Search onSelect={place => setSelectedLocation({
-              city: place.city,
-              country: place.country,
+                city: place.city,
+                country: place.country,
                 region: place.region || '',
-              latitude: place.latitude,
-              longitude: place.longitude,
+                latitude: place.latitude,
+                longitude: place.longitude,
+              })} />
+            </div>
+            <div className="hidden sm:block max-w-7xl mx-auto w-full px-2 sm:px-4 mb-8">
+              <Search onSelect={place => setSelectedLocation({
+                city: place.city,
+                country: place.country,
+                region: place.region || '',
+                latitude: place.latitude,
+                longitude: place.longitude,
               })} />
             </div>
             <section className="flex flex-col md:flex-row gap-6 md:gap-8 items-stretch w-full">
