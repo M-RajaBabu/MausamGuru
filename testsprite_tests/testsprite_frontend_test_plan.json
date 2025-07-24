@@ -1,0 +1,405 @@
+[
+  {
+    "id": "TC001",
+    "title": "Verify current weather display for selected location",
+    "description": "Check that current weather data for a selected location is fetched from OpenWeatherMap API and displayed accurately.",
+    "category": "functional",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Open application and enter a valid Indian city name in the location search bar."
+      },
+      {
+        "type": "action",
+        "description": "Select the city from suggested results."
+      },
+      {
+        "type": "assertion",
+        "description": "Verify current weather data (temperature, humidity, description, wind speed) is displayed matching OpenWeatherMap API response."
+      }
+    ]
+  },
+  {
+    "id": "TC002",
+    "title": "Handle invalid location search input",
+    "description": "Verify application behavior when an invalid or non-existent location is entered in the search bar.",
+    "category": "error handling",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Open application and enter a nonsensical or invalid location string in the search bar."
+      },
+      {
+        "type": "action",
+        "description": "Attempt to select location or submit search."
+      },
+      {
+        "type": "assertion",
+        "description": "Verify user is shown a clear error message indicating location not found and no weather data is displayed."
+      }
+    ]
+  },
+  {
+    "id": "TC003",
+    "title": "Verify daily, hourly, and minute-by-minute forecast display",
+    "description": "Ensure the forecast tabs display accurate weather forecast data for selected location in respective intervals.",
+    "category": "functional",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Select a valid location."
+      },
+      {
+        "type": "action",
+        "description": "Navigate to the Daily forecast tab and check data consistency with OpenWeatherMap API daily forecast."
+      },
+      {
+        "type": "assertion",
+        "description": "Daily forecast data such as temperature highs/lows, rain probability, wind speed are displayed correctly."
+      },
+      {
+        "type": "action",
+        "description": "Navigate to the Hourly forecast tab and verify hourly temperature, precipitation, wind trends."
+      },
+      {
+        "type": "assertion",
+        "description": "Hourly forecast data matches API source and updates when location changes."
+      },
+      {
+        "type": "action",
+        "description": "Navigate to the Minute-by-minute (MinuteCast) forecast tab."
+      },
+      {
+        "type": "assertion",
+        "description": "Minute-by-minute rain probability and intensity data are displayed without errors."
+      }
+    ]
+  },
+  {
+    "id": "TC004",
+    "title": "Verify air quality index and health suggestions display",
+    "description": "Validate that air quality data and related health activities are fetched and shown correctly for a selected location.",
+    "category": "functional",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Select a location."
+      },
+      {
+        "type": "action",
+        "description": "Navigate to the Air Quality tab."
+      },
+      {
+        "type": "assertion",
+        "description": "Air Quality Index (AQI) is shown with correct value and corresponding color coding."
+      },
+      {
+        "type": "assertion",
+        "description": "Health tips and recommended outdoor activities are displayed appropriately based on AQI level."
+      }
+    ]
+  },
+  {
+    "id": "TC005",
+    "title": "Test interactive map functionality with Leaflet and Mapbox GL",
+    "description": "Check that map views are interactive, markers and popups display accurate weather data and respond correctly to user interaction.",
+    "category": "functional",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to the Mapbox View tab."
+      },
+      {
+        "type": "assertion",
+        "description": "Map loads correctly with weather markers visible for multiple locations."
+      },
+      {
+        "type": "action",
+        "description": "Click weather markers to open popups."
+      },
+      {
+        "type": "assertion",
+        "description": "Popups display detailed weather information consistent with API data."
+      },
+      {
+        "type": "action",
+        "description": "Pan, zoom, and interact with the map."
+      },
+      {
+        "type": "assertion",
+        "description": "Map interactions are smooth and responsive without rendering errors."
+      }
+    ]
+  },
+  {
+    "id": "TC006",
+    "title": "Validate AI-generated weather insights and tips update",
+    "description": "Verify that AI-powered weather summaries and safety tips provided by Google Gemini API are relevant and refresh with new data.",
+    "category": "functional",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Select a different location."
+      },
+      {
+        "type": "action",
+        "description": "Open the AI Weather Insights sidebar."
+      },
+      {
+        "type": "assertion",
+        "description": "AI-generated weather summaries and tips are displayed and correspond to the selected location’s weather."
+      },
+      {
+        "type": "action",
+        "description": "Wait or trigger weather data update."
+      },
+      {
+        "type": "assertion",
+        "description": "Insights update automatically or on refresh with new AI-generated content."
+      }
+    ]
+  },
+  {
+    "id": "TC007",
+    "title": "Verify statewise weather news and AI summaries display",
+    "description": "Test that weather news by Indian states and AI-generated news summaries are correct and specialized as per region.",
+    "category": "functional",
+    "priority": "Medium",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to the India Weather News tab."
+      },
+      {
+        "type": "assertion",
+        "description": "Statewise weather news is visible for multiple Indian states."
+      },
+      {
+        "type": "assertion",
+        "description": "AI-generated summaries are relevant, correct, and updated per state."
+      }
+    ]
+  },
+  {
+    "id": "TC008",
+    "title": "Verify seasonal trip suggestions based on Indian weather and seasons",
+    "description": "Check that the seasonal trip suggestions are appropriate for current season and weather conditions of India.",
+    "category": "functional",
+    "priority": "Medium",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to the Seasons tab."
+      },
+      {
+        "type": "assertion",
+        "description": "Seasonal trip suggestions are displayed and relevant to current Indian weather and season."
+      },
+      {
+        "type": "action",
+        "description": "Change selected location to different Indian states with varying climates."
+      },
+      {
+        "type": "assertion",
+        "description": "Trip suggestions update accordingly reflecting regional weather patterns."
+      }
+    ]
+  },
+  {
+    "id": "TC009",
+    "title": "Verify sidebar displays sunrise, sunset, moon phase, and fun facts",
+    "description": "Ensure that sidebar extras components render accurate astronomical data and engaging weather facts.",
+    "category": "functional",
+    "priority": "Medium",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Select a location."
+      },
+      {
+        "type": "assertion",
+        "description": "Sidebar shows correct sunrise and sunset times matching location and date."
+      },
+      {
+        "type": "assertion",
+        "description": "Moon phase is displayed correctly according to current lunar calendar."
+      },
+      {
+        "type": "assertion",
+        "description": "Fun weather facts are visible and change appropriately with location or time."
+      }
+    ]
+  },
+  {
+    "id": "TC010",
+    "title": "Verify UI responsiveness and Tailwind CSS styling across devices",
+    "description": "Check that the application UI renders correctly and is properly responsive on various screen sizes and device types.",
+    "category": "ui",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Open the app on desktop with large screen resolution."
+      },
+      {
+        "type": "assertion",
+        "description": "All UI components display correctly with consistent styling and no overflow or clipping."
+      },
+      {
+        "type": "action",
+        "description": "Open the app on tablet and mobile devices with smaller screen sizes."
+      },
+      {
+        "type": "assertion",
+        "description": "UI layout adjusts responsively, with readable fonts and correctly sized interactive elements."
+      },
+      {
+        "type": "assertion",
+        "description": "Tailwind CSS classes are applied correctly to major components."
+      }
+    ]
+  },
+  {
+    "id": "TC011",
+    "title": "Verify backend API server responsiveness and data consistency",
+    "description": "Test that the Express.js backend API and MongoDB database properly serve weather, air quality, news, and AI data without performance or consistency issues.",
+    "category": "functional",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Send API requests to backend endpoints for current weather, forecasts, air quality, and news for valid locations."
+      },
+      {
+        "type": "assertion",
+        "description": "Verify API responses are timely, contain valid and consistent data as per external APIs, and handle errors gracefully."
+      },
+      {
+        "type": "action",
+        "description": "Send API requests with invalid or missing parameters."
+      },
+      {
+        "type": "assertion",
+        "description": "Verify API returns appropriate error status codes and descriptive error messages."
+      }
+    ]
+  },
+  {
+    "id": "TC012",
+    "title": "Verify user navigation through main tabs performs without errors",
+    "description": "Confirm seamless navigation through the main tabs (Now, Radar, Air Quality, Health & Activities, Mapbox View, Seasons, Contact Us) with expected data displayed.",
+    "category": "functional",
+    "priority": "Medium",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Open the app and select a location."
+      },
+      {
+        "type": "action",
+        "description": "Click through each main tab sequentially."
+      },
+      {
+        "type": "assertion",
+        "description": "Verify each tab loads without errors and displays relevant content tied to the selected location."
+      },
+      {
+        "type": "action",
+        "description": "Switch locations and repeat tab navigation."
+      },
+      {
+        "type": "assertion",
+        "description": "Verify updated information is loaded in each tab."
+      }
+    ]
+  },
+  {
+    "id": "TC013",
+    "title": "Validate health and outdoor activity recommendation logic based on air quality",
+    "description": "Ensure the Health & Activities tab recommends appropriate health and outdoor activity suggestions according to current air quality levels.",
+    "category": "functional",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Select location with good air quality."
+      },
+      {
+        "type": "action",
+        "description": "Navigate to Health & Activities tab."
+      },
+      {
+        "type": "assertion",
+        "description": "Verify recommendations encourage safe outdoor activities."
+      },
+      {
+        "type": "action",
+        "description": "Change to location with poor air quality."
+      },
+      {
+        "type": "assertion",
+        "description": "Verify recommendations advise caution or indoor activities."
+      }
+    ]
+  },
+  {
+    "id": "TC014",
+    "title": "Verify map markers and popups update when location or data changes",
+    "description": "Check that weather map markers and popup details refresh and correspond to changed data or user interactions.",
+    "category": "functional",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Load map view and observe markers."
+      },
+      {
+        "type": "action",
+        "description": "Select a new location or apply data refresh."
+      },
+      {
+        "type": "assertion",
+        "description": "Verify markers update to reflect the new location/weather data."
+      },
+      {
+        "type": "action",
+        "description": "Click markers to open popups after update."
+      },
+      {
+        "type": "assertion",
+        "description": "Popups show current data matching the newly refreshed information."
+      }
+    ]
+  },
+  {
+    "id": "TC015",
+    "title": "Check error handling when third-party APIs fail or return errors",
+    "description": "Verify the app handles API failures gracefully without crashing, including OpenWeatherMap, Google Gemini, and other external services.",
+    "category": "error handling",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Simulate OpenWeatherMap API failure or invalid response."
+      },
+      {
+        "type": "assertion",
+        "description": "Verify app shows a user-friendly error message indicating weather data is unavailable."
+      },
+      {
+        "type": "action",
+        "description": "Simulate Google Gemini API failure."
+      },
+      {
+        "type": "assertion",
+        "description": "Verify AI Weather Insights section displays fallback message and does not block other content."
+      }
+    ]
+  }
+]

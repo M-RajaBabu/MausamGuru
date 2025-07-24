@@ -1,0 +1,7 @@
+/* Tailwind CSS is now used for all styling. */
+.leaflet-container {
+  width: 100% !important;
+  height: 100% !important;
+  position: relative !important;
+  overflow: hidden !important;
+}
